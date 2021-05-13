@@ -1,0 +1,16 @@
+{
+  "sec_rakuten": {
+    "id": "xxxxxx",
+    "pass": "xxxxx",
+    "url": "https://www.rakuten-sec.co.jp/ITS/V_ACT_Login.html"
+  },
+  "database": {
+    "conn": "postgresql://postgres:localhost:5432/rakuten"
+  },
+  "mail_schedule": {
+    "on_weekdays": ["月","火","水","木","金"],
+    "on_times": ["09:00-09:15","11:30-11:45","15:00-15:15","21:30-21:45","22:30-22:45"],
+    "off_weekdays": ["土","日"],
+    "off_times": ["00:00-00:00"]
+  }
+}
