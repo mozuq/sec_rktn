@@ -5,7 +5,7 @@
     "url": "https://www.rakuten-sec.co.jp/ITS/V_ACT_Login.html"
   },
   "database": {
-    "conn": "postgresql://postgres:localhost:5432/rakuten"
+    "conn": "postgresql://id:password@localhost:5432/rakuten"
   },
   "mail_schedule": {
     "on_weekdays": ["月","火","水","木","金"],
