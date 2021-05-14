@@ -5,12 +5,24 @@
 import os
 import datetime
 import csv
+import json
+
+def get_setting(itm,key):
+    setting_info = json.load(open('info.json', 'r', encoding='utf-8'))
+    return setting_info[itm][key]
 
 def make_dir(path):
     if not os.path.isdir(path):
         os.makedirs(path,exist_ok=True)
 
 def dsp_msg(title,msg,lvl):
+    if os.path.exists('./data')==False:
+        make_dir('./data')
+
+    if os.path.exists('./data/log.txt')==False:
+        with open('./data/log.txt', 'w', encoding='shift_jis') as f:
+            f.write('')
+
     tmp = datetime.datetime.now().strftime('[%Y-%m-%d %H:%M:%S] ') + ('*' * lvl) + title + ': ' + msg
 
     with open('./data/log.txt', 'r', encoding='shift_jis') as f:
@@ -43,10 +55,10 @@ def num2str(innum,strtype):
 
     return str
 
-def make_html():
-    dsp_msg('html生成','',2)
+def make_html(msg):
+    dsp_msg('html生成',msg,2)
 
-    linkurl ='<a href="http://#####/img_*****.png">※</a>'
+    linkurl = '<a href="' + get_setting('mail_html','pic_link') + '">※</a>'
 
     tbl = []
     with open(r'./data/list_shisan.csv','r') as f:
@@ -89,6 +101,7 @@ def make_html():
     # テンプレートに埋め込み
     html = html.replace('{0}',in_table)
     html = html.replace('{1}',datetime.datetime.now().strftime('[%Y-%m-%d %H:%M:%S]'))
+    html = html.replace('{2}',get_setting('mail_html','log_link'))
 
     return html
 
