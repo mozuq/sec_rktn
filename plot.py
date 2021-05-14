@@ -11,7 +11,7 @@ import matplotlib.dates as mdates
 import japanize_matplotlib
 import datetime
 import csv
-from prjlib import make_dir, dsp_msg
+from prjlib import *
 
 
 def get_item(tbl,col,srch_word):
@@ -133,8 +133,8 @@ def plot(flg):
 
     make_dir('./chart')
 
-	  #
-	  # 処理銘柄を個別指定するのは冴えない、自動処理の案なし
+    #
+    # 処理銘柄を個別指定するのは冴えない、自動処理の案なし
     #
 	
     # table: shisan
