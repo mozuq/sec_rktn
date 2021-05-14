@@ -1,4 +1,5 @@
-# 楽天証券WEBスクレイピング
+# sec_rktn
+楽天証券WEBスクレイピング
 
 ## 一貫処理  
 > python rakuten.py
