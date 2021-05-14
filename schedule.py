@@ -3,9 +3,8 @@
 #
 
 import datetime
-import json
 import locale
-from prjlib import dsp_msg
+from prjlib import *
 
 
 def chk_mail_schedule(in_datetime):
@@ -23,11 +22,10 @@ def chk_mail_schedule(in_datetime):
     now_time = datetime.datetime.now().strftime('%H:%M')
     now_weekday = datetime.datetime.now().strftime('%a')
 
-    info = json.load(open("info.json", "r", encoding="utf-8"))
-    on_weekdays = info["mail_schedule"]["on_weekdays"]
-    on_times = info["mail_schedule"]["on_times"]
-    off_weekdays = info["mail_schedule"]["off_weekdays"]
-    off_times = info["mail_schedule"]["off_times"]
+    on_weekdays = get_setting('mail_schedule','on_weekdays')
+    on_times = get_setting('mail_schedule','on_times')
+    off_weekdays = get_setting('mail_schedule','off_weekdays')
+    off_times = get_setting('mail_schedule','off_times')
 
     flg = False
     for on_weekday in on_weekdays:
