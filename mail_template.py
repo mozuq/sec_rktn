@@ -52,7 +52,7 @@
                                 <tr>
                                     <td class="responsive-td" valign="top" align="right" <font size="1"
                                         style="font-size:9px;line-height:1.4;">
-                                        <a href="http://*******/log.txt" style="text-decoration:underline;">サーバログ{1}</a></font>
+                                        <a href="{2}" style="text-decoration:underline;">サーバログ{1}</a></font>
                                     </td>
                                 </tr>
                             </table>
