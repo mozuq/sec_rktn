@@ -12,16 +12,11 @@ import os
 import psycopg2
 import datetime
 import tkinter, tkinter.filedialog, tkinter.messagebox
-import json
-from prjlib import make_dir, dsp_msg, str2num
+from prjlib import *
 
-def con_db():
-    # DB接続文字列
-    login_info = json.load(open("info.json", "r", encoding="utf-8"))
-    return login_info["database"]["conn"]
 
 def get_table(sql):
-    dbcon = con_db()
+    dbcon = get_setting('database','conn')
     with psycopg2.connect(dbcon) as con:
         cur = con.cursor()
         cur.execute(sql)
@@ -29,7 +24,7 @@ def get_table(sql):
         return tmp
 
 def get_table_col(tbl,typ):
-    dbcon = con_db()
+    dbcon = get_setting('database','conn')
     with psycopg2.connect(dbcon) as con:
         cur = con.cursor()
         cur.execute('SELECT * FROM {0} LIMIT 1;'.format(tbl))
@@ -43,7 +38,7 @@ def get_table_col(tbl,typ):
             return [col.name for col in cur.description]
 
 def insert_table(sql):
-    dbcon = con_db()
+    dbcon = get_setting('database','conn')
     with psycopg2.connect(dbcon) as con:
         cur = con.cursor()
         cur.execute(sql)
