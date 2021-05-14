@@ -15,3 +15,6 @@ DISP_BROWSER: 0=ブラウザ表示なし(ヘッドレス実行)、1=ブラウザ
 
 ### メール送信  
 >$ py mail.py
+
+### DBレコード削除  
+>$ py delete.py
