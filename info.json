@@ -7,10 +7,19 @@
   "database": {
     "conn": "postgresql://id:password@localhost:5432/rakuten"
   },
+  "gmail": {
+    "id": "xxxxx@gmail.com",
+    "pass": "xxxxx",
+    "to_mail": "xxxxx@xxxxx"
+  },
+  "mail_html": {
+    "log_link": "http://xxxxx/log.txt",
+    "pic_link": "http://xxxxx/chart/img_*****.png"
+  },
   "mail_schedule": {
     "on_weekdays": ["月","火","水","木","金"],
     "on_times": ["09:00-09:15","11:30-11:45","15:00-15:15","21:30-21:45","22:30-22:45"],
     "off_weekdays": ["土","日"],
-    "off_times": ["00:00-00:00"]
+    "off_times": ["00:00-23:59"]
   }
 }
